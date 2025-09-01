@@ -1,14 +1,19 @@
-<main class="container">
-  <div class="card header-card">
-    <a routerLink="/"><img src="/logo.png" alt="Logo" class="logo" /></a>
-    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap">
-      <button routerLink="/tabla">Ir a Tabla</button>
-      <button class="ghost" routerLink="/formulario">Ir a Formulario</button>
-      <button class="ghost" routerLink="/login">Login</button>
-    </div>
-  </div>
+<div class="card header-card">
+  <a routerLink="/"><img src="/logo.png" alt="Logo" class="logo" /></a>
 
-  <div class="card" style="margin-top: 18px">
-    <router-outlet></router-outlet>
+  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap">
+    <button routerLink="/tabla">Ir a Tabla</button>
+    <button class="ghost" routerLink="/formulario">Ir a Formulario</button>
+
+    <ng-container *ngIf="isLoggedIn; else showLogin">
+      <button class="ghost" (click)="logout()">Cerrar sesión</button>
+    </ng-container>
+    <ng-template #showLogin>
+      <button class="ghost" routerLink="/login">Login</button>
+    </ng-template>
   </div>
-</main>
+</div>
+
+<div class="card" style="margin-top: 18px">
+  <router-outlet></router-outlet>
+</div>
