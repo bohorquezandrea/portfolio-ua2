@@ -1,0 +1,30 @@
+<h1 style="margin: 0 0 0.5rem">Registro</h1>
+<p class="muted" style="margin: 0 0 0.75rem">Crea tu cuenta.</p>
+
+<form [formGroup]="form" (ngSubmit)="continue()" class="form">
+  <div class="form-grid">
+    <div class="form-field col-6">
+      <label for="nombre">Nombre *</label>
+      <input id="nombre" formControlName="nombre" placeholder="Andrea" />
+    </div>
+
+    <div class="form-field col-6">
+      <label for="apellido">Apellido *</label>
+      <input id="apellido" formControlName="apellido" placeholder="Bohorquez" />
+    </div>
+
+    <div class="form-field col-6">
+      <label for="email">Email *</label>
+      <input id="email" type="email" formControlName="email" placeholder="andrea@mail.com" />
+    </div>
+
+    <div class="form-field col-6">
+      <label for="password">Contraseña *</label>
+      <input id="password" type="password" formControlName="password" placeholder="••••••" />
+    </div>
+
+    <div class="col-12">
+      <button type="submit" [disabled]="form.invalid">Continuar</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,22 @@
+<h1 style="margin: 0 0 0.5rem">Login</h1>
+<p class="muted" style="margin: 0 0 0.75rem">Ingresa tus credenciales.</p>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="form">
+  <div class="form-grid">
+    <div class="form-field col-12">
+      <label for="email">Email *</label>
+      <input id="email" type="email" formControlName="email" placeholder="andrea@mail.com" />
+    </div>
+
+    <div class="form-field col-12">
+      <label for="password">Contraseña *</label>
+      <input id="password" type="password" formControlName="password" placeholder="••••••" />
+    </div>
+
+    <div class="form-actions col-12">
+      <button type="submit" *ngIf="form.valid">Continuar</button>
+
+      <a routerLink="/register" class="link-soft">Registrarme</a>
+    </div>
+  </div>
+</form>
