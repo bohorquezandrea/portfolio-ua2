@@ -1,0 +1,35 @@
+<h1 style="margin: 0 0 0.5rem">Tabla de piezas</h1>
+<p style="color: var(--muted); margin: 0 0 0.75rem">15 filas · 8 atributos</p>
+
+<div style="margin: 0 0 0.75rem">
+  <button (click)="toggle()">{{ showAlt ? 'Vista original' : 'Cambiar vista' }}</button>
+</div>
+
+<div style="overflow: auto; border: 1px solid var(--border); border-radius: 12px">
+  <table>
+    <thead [class.alt]="showAlt">
+      <tr>
+        <th *ngIf="showAlt">ID</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Material</th>
+        <th>Precio</th>
+        <th *ngIf="!showAlt">Stock</th>
+        <th *ngIf="!showAlt">Origen</th>
+        <th *ngIf="showAlt">Valoración</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let it of data">
+        <td *ngIf="showAlt">{{ it.id }}</td>
+        <td>{{ it.nombre }}</td>
+        <td>{{ it.categoria }}</td>
+        <td>{{ it.material }}</td>
+        <td>{{ it.precio | currency : 'USD' : 'symbol' : '1.0-0' }}</td>
+        <td *ngIf="!showAlt">{{ it.stock }}</td>
+        <td *ngIf="!showAlt">{{ it.origen }}</td>
+        <td *ngIf="showAlt">{{ it.rating }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

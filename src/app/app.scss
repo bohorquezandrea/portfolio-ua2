@@ -1,0 +1,14 @@
+.header-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.logo {
+  height: 70px;
+}
+@media (max-width: 640px) {
+  .logo {
+    height: 30px;
+  }
+}
